@@ -14,3 +14,8 @@ HumanGaitDataBase/
 # OS / IDE files
 .DS_Store
 *.swp
+
+
+*.pth
+*.pt
+*.ckpt
