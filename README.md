@@ -1,27 +1,73 @@
-This project implements **Federated Learning (FL)** using a **Multi-Layer Perceptron (MLP)** for HuGaDB.
+
+# Federated Learning (FL) with MLP on HuGaDB
+
+This project implements **Federated Learning (FL)** using a **Multi-Layer Perceptron (MLP)** for the **HuGaDB** human gait dataset.
 
 ---
 
-## **How the Federated Learning Pipeline Works**
+## 🔄 Federated Learning Pipeline
 
-### **Each Federated Learning Round Includes 3 Steps:**
-
-#### **1. Local Training**
-
-* The server sends the current global model to every client.
-* Each client trains the model on its own local dataset for a few epochs.
-
-#### **2. Model Aggregation (FedAvg)**
-
-* The server averages all client models using **weighted averaging**, where weights depend on the number of samples each client holds.
-* This produces a new **global model**, combining weights from all clients.
-
-#### **3. Global Evaluation**
-
-* The updated global model is evaluated on:
-
-  * A **validation set** (for tracking improvement & early stopping)
-  * A **test set** (for monitoring accuracy each round)
+Each Federated Learning round in `fl.py` follows **three main steps**:
 
 ---
 
+### **1️⃣ Local Training**
+
+* The server sends the current **global model** to every client.
+* Each client trains this model on its **own local dataset** for a few epochs
+  (handled in `train_client()` → the loop `for _ in range(epochs)`).
+
+---
+
+### **2️⃣ Model Aggregation (FedAvg)**
+
+* The server collects updated client models.
+* It performs **weighted averaging**, where each client’s weight is proportional to its dataset size.
+
+---
+
+### **3️⃣ Global Evaluation**
+
+The aggregated global model is evaluated on:
+
+* **Validation set** → used for tracking improvement & early stopping
+* **Test set** → used to monitor global performance each round
+
+All metrics are logged into CSV files and can be plotted afterward.
+
+---
+
+##  Usage
+
+### **Run the Federated Learning Experiment**
+
+To run the federated learning simulation, execute the main script:
+
+```bash
+python fl.py
+```
+
+### **Generate Result Plots**
+
+To visualize the results after training:
+
+```bash
+python plots.py
+```
+
+---
+
+##  Results
+
+Generated figures are stored in the **`fig/`** directory.
+
+* **Global Loss Curve**
+  `fig/global_loss.png`
+![Alt text](fig/global_loss.png)
+
+
+* **Global Accuracy Curve**
+  `fig/global_accuracy.png`
+![Alt text](fig/global_accuracy.png)
+
+---
