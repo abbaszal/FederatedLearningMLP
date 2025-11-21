@@ -20,7 +20,7 @@ Each Federated Learning round in `fl.py` follows **three main steps**:
 
 ### **2️⃣ Model Aggregation (FedAvg)**
 
-* The server collects updated client models.
+* The global model collects updated client models.
 * It performs **weighted averaging**, where each client’s weight is proportional to its dataset size.
 
 ---
