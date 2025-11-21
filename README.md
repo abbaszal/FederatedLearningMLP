@@ -5,7 +5,7 @@ This project implements **Federated Learning (FL)** using a **Multi-Layer Percep
 
 ---
 
-## 🔄 Federated Learning Pipeline
+##  Federated Learning Pipeline
 
 Each Federated Learning round in `fl.py` follows **three main steps**:
 
