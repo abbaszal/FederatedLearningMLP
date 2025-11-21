@@ -13,9 +13,8 @@ Each Federated Learning round in `fl.py` follows **three main steps**:
 
 ### **1️⃣ Local Training**
 
-* The server sends the current **global model** to every client.
 * Each client trains this model on its **own local dataset** for a few epochs
-  (handled in `train_client()` → the loop `for _ in range(epochs)`).
+
 
 ---
 
